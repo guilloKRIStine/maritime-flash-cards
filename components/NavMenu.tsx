@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import api from '~/utils/api';
+import colors from '~/utils/colors';
 import paths from '~/utils/paths';
 
 const buttonStyles: SxProps<Theme> = {
@@ -19,7 +20,6 @@ const buttonStyles: SxProps<Theme> = {
   padding: '10px 15px',
   textTransform: 'none',
   fontSize: 'x-large',
-  fontFamily: 'Roboto',
   fontWeight: 'bold',
   lineHeight: 1.25,
 };
@@ -39,7 +39,11 @@ const NavMenu = () => {
   return (
     <AppBar
       position="static"
-      sx={{ height: '124px', bgcolor: '#253C88', justifyContent: 'center' }}
+      sx={{
+        height: '124px',
+        bgcolor: colors['primary.2'],
+        justifyContent: 'center',
+      }}
     >
       <Toolbar
         sx={{
@@ -72,11 +76,11 @@ const NavMenu = () => {
         >
           <Image
             priority
-            src="/logo.svg"
+            src="/logo.png"
             alt="logo"
-            width={352}
+            width={250}
             height={100}
-            style={{ pointerEvents: 'none' }}
+            style={{ pointerEvents: 'none', objectFit: 'contain' }}
           />
         </Box>
 

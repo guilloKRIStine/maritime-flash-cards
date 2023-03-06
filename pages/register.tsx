@@ -56,12 +56,13 @@ const RegisterPage = () => {
   const onSubmit = async () => {
     setIsLoading(true);
     try {
-      await api.user.register(
+      const isSuccess = await api.user.register(
         registerForm.login,
         registerForm.password,
         registerForm.repeatPassword
       );
-      router.push(paths.main);
+      if (isSuccess) router.push(paths.main);
+      else throw new Error();
     } catch {
       setIsLoading(false);
       setAlertsState({ ...alertsState, isLoginError: true });
@@ -139,17 +140,17 @@ const RegisterPage = () => {
           <LoadingButton
             isLoading={isLoading}
             type="submit"
+            variant="contained"
             children="Зарегистрироваться"
             sx={{
               margin: '35px',
-              bgcolor: 'green',
+
               color: 'white',
               fontWeight: 'bold',
               fontSize: 'larger',
               textTransform: 'none',
               width: '300px',
               height: '50px',
-              ':hover': { bgcolor: 'rgb(0, 92, 0)' },
             }}
           />
         </ValidatorForm>

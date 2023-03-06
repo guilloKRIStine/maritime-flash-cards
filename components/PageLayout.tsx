@@ -1,5 +1,6 @@
 import Box, { BoxProps } from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
+import colors from '~/utils/colors';
 
 type Props = {
   isLoading?: boolean;
@@ -24,7 +25,11 @@ const PageLayout = ({
     {isLoading ? (
       <CircularProgress
         size={100}
-        sx={{ position: 'fixed', top: '50%', left: '48%', color: '#253C88' }}
+        sx={{
+          position: 'fixed',
+          top: '50%',
+          left: '48%',
+        }}
       />
     ) : !isNotFound ? (
       children
