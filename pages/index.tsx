@@ -1,9 +1,9 @@
 import PageLayout from '~/components/PageLayout';
 
-const Home = () => (
+const Main = () => (
   <PageLayout isLoading>
     <p>Home</p>
   </PageLayout>
 );
 
-export default Home;
+export default Main;

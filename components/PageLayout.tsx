@@ -1,24 +1,25 @@
-import Box from '@mui/material/Box';
+import Box, { BoxProps } from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import { SxProps, Theme } from '@mui/material/styles';
-import { ReactNode } from 'react';
 
 type Props = {
-  sx?: SxProps<Theme>;
   isLoading?: boolean;
   isNotFound?: boolean;
   componentNotFound?: JSX.Element;
-  children: ReactNode;
-};
+} & BoxProps;
 
 const PageLayout = ({
-  sx,
   isLoading,
   isNotFound,
   componentNotFound,
   children,
+  ...props
 }: Props) => (
-  <Box sx={sx}>
+  <Box
+    minHeight="calc(100vh - 124px)"
+    display="flex"
+    justifyContent="center"
+    {...props}
+  >
     {isNotFound && !isLoading ? componentNotFound : null}
     {isLoading ? (
       <CircularProgress

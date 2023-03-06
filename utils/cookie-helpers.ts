@@ -3,6 +3,8 @@
   value: string,
   expires: number | Date | undefined
 ) {
+  if (typeof document === 'undefined') return;
+
   let updatedCookie =
     encodeURIComponent(name) + '=' + encodeURIComponent(value);
 
@@ -16,7 +18,9 @@
 }
 
 export function getCookie(name: string) {
-  let matches = document.cookie.match(
+  if (typeof document === 'undefined') return;
+
+  const matches = document.cookie.match(
     new RegExp(
       '(?:^|; )' + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)'
     )
