@@ -144,8 +144,6 @@ const RegisterPage = () => {
             children="Зарегистрироваться"
             sx={{
               margin: '35px',
-
-              color: 'white',
               fontWeight: 'bold',
               fontSize: 'larger',
               textTransform: 'none',

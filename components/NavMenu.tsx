@@ -131,15 +131,10 @@ const LoginMenu = () => {
   if (loginState.isAuthenticated && loginState.userName) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <Button
-          sx={buttonStyles}
-          className={menuAnchor ? 'active' : ''}
-          onClick={openMenu}
-        >
+        <Button sx={buttonStyles} onClick={openMenu}>
           {loginState.userName}
           <AccountCircle
             sx={{ marginLeft: '10px', width: '60px', height: '60px' }}
-            className="icon"
           />
         </Button>
         <Menu
